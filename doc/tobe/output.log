@@ -1,0 +1,5 @@
+警告: サブグラフ 'プロセスフロー情報' 内でノード 'TYPE' が重複したため排除
+警告: サブグラフ 'プロセスフロー情報' 内でノード 'PROGRESS_DATE' が重複したため排除
+警告: 接続線エラー from=(カテゴリマスタ,TYPE, id=None) to=(KSR_SETTING,TYPE2, id=KSR_SETTING_TYPE2)
+警告: 接続線エラー from=(カテゴリマスタ,PRODSPEC_ID, id=None) to=(KSR_SETTING,PRODSPEC_ID, id=KSR_SETTING_PRODSPEC_ID)
+警告: 接続線エラー from=(カテゴリマスタ,製品タイプ, id=None) to=(子カテゴリ変換マスタ,TYPE, id=子カテゴリ変換マスタ_TYPE)

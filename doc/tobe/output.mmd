@@ -1,0 +1,468 @@
+flowchart LR
+  subgraph E-gis損失計画
+    E-gis損失計画_設備Gp[設備Gp]
+    E-gis損失計画_装置ID[装置ID]
+  end
+  subgraph 管理装置GPマスタ
+    管理装置GPマスタ_EQP_PROCESS[EQP_PROCESS]
+    管理装置GPマスタ_EQP_GRP_CONV[EQP_GRP_CONV]
+    管理装置GPマスタ_EQP_GRP_INTEG[EQP_GRP_INTEG]
+    管理装置GPマスタ_EQP_ID[EQP_ID]
+    管理装置GPマスタ_Manual_input[Manual_input]
+    管理装置GPマスタ_AVAIL_FLG[AVAIL_FLG]
+    管理装置GPマスタ_TACT_summary[TACT_summary]
+    管理装置GPマスタ_EQP_GRP_TACT[EQP_GRP_TACT]
+    管理装置GPマスタ_CALC_TYPE[CALC_TYPE]
+    管理装置GPマスタ_COUNT_PARAM[COUNT_PARAM]
+  end
+  subgraph 装置工程マスタ
+    装置工程マスタ_EQP_ID_INITIAL[EQP_ID_INITIAL]
+    装置工程マスタ_Manual_input[Manual_input]
+    装置工程マスタ_EQP_PROCESS[EQP_PROCESS]
+  end
+  subgraph 統合装置Gp変換
+    統合装置Gp変換_EQP_GRP_CONV[EQP_GRP_CONV]
+    統合装置Gp変換_Manual_input[Manual_input]
+    統合装置Gp変換_EQP_GRP_INTEG[EQP_GRP_INTEG]
+  end
+  subgraph TACT計算表
+    TACT計算表_Manual_input[Manual_input]
+    TACT計算表_CALC_TYPE[CALC_TYPE]
+    TACT計算表_RESULT_SELECTION[RESULT_SELECTION]
+    TACT計算表_T0[T0]
+    TACT計算表_OUTPUT_SELECTION[OUTPUT_SELECTION]
+    TACT計算表_COEFFICIENT[COEFFICIENT]
+  end
+  subgraph SiView
+    SiView_品質管理表[品質管理表]
+  end
+  subgraph 装置Gp変換
+    装置Gp変換_RECIPE_NAME_SPACE_ID[RECIPE_NAME_SPACE_ID]
+    装置Gp変換_Manual_input[Manual_input]
+    装置Gp変換_EQP_GRP_CONV[EQP_GRP_CONV]
+  end
+  subgraph 基月検証
+    基月検証_年月[年月]
+    基月検証_設備Gp[設備Gp]
+    基月検証_装置ID[装置ID]
+    基月検証_段取[段取]
+    基月検証_点検[点検]
+    基月検証_故障[故障]
+    基月検証_デバッグ[デバッグ]
+    基月検証_保有[保有]
+    基月検証_負荷率[負荷率]
+    基月検証_待機[待機]
+    基月検証_稼働[稼働]
+    基月検証_作業数_s_per_月[作業数_s_per_月]
+    基月検証_能力換算台数[能力換算台数]
+    基月検証_各設備の換算台数[各設備の換算台数]
+    基月検証_基礎設定シート[基礎設定シート]
+    基月検証_稼働日[稼働日]
+  end
+  subgraph 設備稼働計画
+    設備稼働計画_DUE_DATE[DUE_DATE]
+    設備稼働計画_EQP_GRP_CONV[EQP_GRP_CONV]
+    設備稼働計画_ENG_STATE_RATIO[ENG_STATE_RATIO]
+    設備稼働計画_SDT_STATE_RATIO[SDT_STATE_RATIO]
+    設備稼働計画_UDT_STATE_RATIO[UDT_STATE_RATIO]
+    設備稼働計画_NST_STATE_RATIO[NST_STATE_RATIO]
+    設備稼働計画_SBY_STATE_RATIO[SBY_STATE_RATIO]
+    設備稼働計画_PRD_STATE_RATIO[PRD_STATE_RATIO]
+    設備稼働計画_HOYU_RATIO[HOYU_RATIO]
+    設備稼働計画_LOAD_RATIO[LOAD_RATIO]
+  end
+  subgraph 装置GP処理能力
+    装置GP処理能力_BASE_MONTH[BASE_MONTH]
+    装置GP処理能力_CLAIM_TIME[CLAIM_TIME]
+    装置GP処理能力_EQP_GRP_CONV[EQP_GRP_CONV]
+    装置GP処理能力_EQP_ID[EQP_ID]
+    装置GP処理能力_FACTORYRUN_DAY[FACTORYRUN_DAY]
+    装置GP処理能力_ABILITY[ABILITY]
+  end
+  subgraph 汎用化フォローリスト
+    汎用化フォローリスト_工程[工程]
+    汎用化フォローリスト_設備Gp[設備Gp]
+    汎用化フォローリスト_Type[Type]
+    汎用化フォローリスト_AAコード[AAコード]
+    汎用化フォローリスト_Ope[Ope]
+    汎用化フォローリスト_号機No[号機No]
+    汎用化フォローリスト_最新リリース可能日[最新リリース可能日]
+  end
+  subgraph 汎用化情報
+    汎用化情報_EQP_PROCESS[EQP_PROCESS]
+    汎用化情報_EQP_GRP_ID[EQP_GRP_ID]
+    汎用化情報_TYPE[TYPE]
+    汎用化情報_MAIN_PD_ID[MAIN_PD_ID]
+    汎用化情報_OPE_NO[OPE_NO]
+    汎用化情報_EQP_ID[EQP_ID]
+    汎用化情報_USAGE_START_DATE[USAGE_START_DATE]
+    汎用化情報_GENERALIZED_COM_DATE[GENERALIZED_COM_DATE]
+  end
+  subgraph 工場停止計画
+    工場停止計画_工場停止計画[工場停止計画]
+  end
+  subgraph 非稼働日設定
+    非稼働日設定_設定日[設定日]
+    非稼働日設定_Manual_input[Manual_input]
+    非稼働日設定_操業度[操業度]
+  end
+  subgraph Sigma基礎情報設定依頼書
+    Sigma基礎情報設定依頼書_フロー情報[フロー情報]
+    Sigma基礎情報設定依頼書_代用タイプ[代用タイプ]
+    Sigma基礎情報設定依頼書_SiView_code[SiView_code]
+    Sigma基礎情報設定依頼書_Item_name_DIN[Item_name_DIN]
+  end
+  subgraph カテゴリマスタ
+    カテゴリマスタ_USE_FLAG_MASTER[USE_FLAG_MASTER]
+    カテゴリマスタ_USE_FLAG_REOL[USE_FLAG_REOL]
+    カテゴリマスタ_USE_FLAG_CUSTOM[USE_FLAG_CUSTOM]
+    カテゴリマスタ_FLAG[FLAG]
+    カテゴリマスタ_INFO_OUT_FLAG[INFO_OUT_FLAG]
+    カテゴリマスタ_REPRESENTATIVE_TYPE[REPRESENTATIVE_TYPE]
+    カテゴリマスタ_REPRESENTATIVE_TARGET[REPRESENTATIVE_TARGET]
+  end
+  subgraph モーションボード
+    モーションボード_モーションボード[モーションボード]
+  end
+  subgraph モーションボード
+    モーションボード_モーションボード[モーションボード]
+  end
+  subgraph TIMES
+    TIMES_投入計画[投入計画]
+    TIMES_品目名[品目名]
+  end
+  subgraph CIS_AAコード一覧
+    CIS_AAコード一覧_テクノロジー[テクノロジー]
+  end
+  subgraph デバイスタイプマスタ
+    デバイスタイプマスタ_自動取得[自動取得]
+    デバイスタイプマスタ_PRODSPEC_ID[PRODSPEC_ID]
+    デバイスタイプマスタ_CATEGORY[CATEGORY]
+    デバイスタイプマスタ_PRODUCT[PRODUCT]
+    デバイスタイプマスタ_TYPE[TYPE]
+    デバイスタイプマスタ_ASP_PROC_NAME[ASP_PROC_NAME]
+    デバイスタイプマスタ_Manual_input[Manual_input]
+    デバイスタイプマスタ_BUSSINES_DIVISION[BUSSINES_DIVISION]
+    デバイスタイプマスタ_PRODUCTION_TEC[PRODUCTION_TEC]
+    デバイスタイプマスタ_DISCON_FLAG[DISCON_FLAG]
+    デバイスタイプマスタ_NON_DEMAND_FLAG[NON_DEMAND_FLAG]
+    デバイスタイプマスタ_PRODUCT_CATEGORY[PRODUCT_CATEGORY]
+    デバイスタイプマスタ_ALTERNATIVE_TYPE[ALTERNATIVE_TYPE]
+  end
+  subgraph 工程パターンマスタ
+    工程パターンマスタ_PRODSPEC_ID[PRODSPEC_ID]
+    工程パターンマスタ_ZONE[ZONE]
+    工程パターンマスタ_ST_PD_NAME[ST_PD_NAME]
+    工程パターンマスタ_END_PD_NAME[END_PD_NAME]
+  end
+  subgraph デバイスタイプマスタ
+    デバイスタイプマスタ_自動取得[自動取得]
+    デバイスタイプマスタ_Manual_input[Manual_input]
+    デバイスタイプマスタ_PRODSPEC_ID[PRODSPEC_ID]
+    デバイスタイプマスタ_USE_FLAG_MASTER[USE_FLAG_MASTER]
+    デバイスタイプマスタ_USE_FLAG_REOL[USE_FLAG_REOL]
+    デバイスタイプマスタ_USE_FLAG_CUSTOM[USE_FLAG_CUSTOM]
+    デバイスタイプマスタ_FLAG[FLAG]
+    デバイスタイプマスタ_INFO_OUT_FLAG[INFO_OUT_FLAG]
+    デバイスタイプマスタ_REPRESENTATIVE_TYPE[REPRESENTATIVE_TYPE]
+    デバイスタイプマスタ_REPRESENTATIVE_TARGET[REPRESENTATIVE_TARGET]
+  end
+  subgraph マスタカテゴリー
+    マスタカテゴリー_CATEGORY[CATEGORY]
+    マスタカテゴリー_TYPE[TYPE]
+    マスタカテゴリー_MRC[MRC]
+  end
+  subgraph DWH_RTR
+    DWH_RTR_MAIN_PD_ID[MAIN_PD_ID]
+    DWH_RTR_LOC_SEQ_NO[LOC_SEQ_NO]
+    DWH_RTR_ALL_OPE_SEQ_NO[ALL_OPE_SEQ_NO]
+    DWH_RTR_OPE_NO[OPE_NO]
+    DWH_RTR_CAST_CATEGORY[CAST_CATEGORY]
+    DWH_RTR_CONTAMI_FOUP_IN[CONTAMI_FOUP_IN]
+    DWH_RTR_CONTAMI_STAUS_IN[CONTAMI_STAUS_IN]
+    DWH_RTR_CONTAMI_FOUP_OUT[CONTAMI_FOUP_OUT]
+    DWH_RTR_CONTAMI_STAUS_OUT[CONTAMI_STAUS_OUT]
+    DWH_RTR_FOUP_CHG[FOUP_CHG]
+    DWH_RTR_CLIN_FLAG[CLIN_FLAG]
+    DWH_RTR_キャリア交換[キャリア交換]
+    DWH_RTR_ウェハID読み込み[ウェハID読み込み]
+    DWH_RTR_設備グループ[設備グループ]
+    DWH_RTR_ロジカルレシピ[ロジカルレシピ]
+    DWH_RTR_作業全設備[作業全設備]
+    DWH_RTR_再処理プロセスID[再処理プロセスID]
+    DWH_RTR_再生戻り作業[再生戻り作業]
+    DWH_RTR_最大再生回数[最大再生回数]
+    DWH_RTR_Qtime時間[Qtime時間]
+    DWH_RTR_Qtimeターゲット工程[Qtimeターゲット工程]
+    DWH_RTR_ラグタイム時間[ラグタイム時間]
+    DWH_RTR_パージ要求[パージ要求]
+    DWH_RTR_処理時間[処理時間]
+  end
+  subgraph プロセスフロー情報
+    プロセスフロー情報_CATEGORY[CATEGORY]
+    プロセスフロー情報_TYPE[TYPE]
+    プロセスフロー情報_MAIN_PD_ID[MAIN_PD_ID]
+    プロセスフロー情報_MRC[MRC]
+    プロセスフロー情報_LOC_SEQ_NO[LOC_SEQ_NO]
+    プロセスフロー情報_ALL_OPE_SEQ_NO[ALL_OPE_SEQ_NO]
+    プロセスフロー情報_OPE_NO[OPE_NO]
+    プロセスフロー情報_CAST_CATEGORY[CAST_CATEGORY]
+    プロセスフロー情報_CONTAMI_FOUP_IN[CONTAMI_FOUP_IN]
+    プロセスフロー情報_CONTAMI_STAUS_IN[CONTAMI_STAUS_IN]
+    プロセスフロー情報_CONTAMI_FOUP_OUT[CONTAMI_FOUP_OUT]
+    プロセスフロー情報_CONTAMI_STAUS_OUT[CONTAMI_STAUS_OUT]
+    プロセスフロー情報_FOUP_CHG[FOUP_CHG]
+    プロセスフロー情報_CLIN_FLAG[CLIN_FLAG]
+    プロセスフロー情報_CA_CHG_FLAG[CA_CHG_FLAG]
+    プロセスフロー情報_WAFER_ID_READ[WAFER_ID_READ]
+    プロセスフロー情報_EQP_GRP_ID[EQP_GRP_ID]
+    プロセスフロー情報_EQP_GRP_CONV[EQP_GRP_CONV]
+    プロセスフロー情報_LC_RECIPE_ID[LC_RECIPE_ID]
+    プロセスフロー情報_ALL_EQP_ID[ALL_EQP_ID]
+    プロセスフロー情報_INHIBIT_EQP_ID[INHIBIT_EQP_ID]
+    プロセスフロー情報_EQP_ID[EQP_ID]
+    プロセスフロー情報_SKIP_FLG[SKIP_FLG]
+    プロセスフロー情報_PASS_RATIO[PASS_RATIO]
+    プロセスフロー情報_REWORK_PROCESS_ID[REWORK_PROCESS_ID]
+    プロセスフロー情報_RW_RETURN_OPE[RW_RETURN_OPE]
+    プロセスフロー情報_MAX_REWORK_CNT[MAX_REWORK_CNT]
+    プロセスフロー情報_QTIME[QTIME]
+    プロセスフロー情報_TAGET_OPE_NO[TAGET_OPE_NO]
+    プロセスフロー情報_LAGTIME[LAGTIME]
+    プロセスフロー情報_PURGE_REQUIRE[PURGE_REQUIRE]
+    プロセスフロー情報_PROCESS_TIME[PROCESS_TIME]
+    プロセスフロー情報_OUT_DAYS[OUT_DAYS]
+    プロセスフロー情報_PROGRESS_DATE[PROGRESS_DATE]
+    プロセスフロー情報_PROGRESS_FLOW[PROGRESS_FLOW]
+    プロセスフロー情報_PLAN_LT_MIN[PLAN_LT_MIN]
+    プロセスフロー情報_DM[DM]
+    プロセスフロー情報_ESTIMATE_LT[ESTIMATE_LT]
+    プロセスフロー情報_ESTIMATE_WAIT_TIME[ESTIMATE_WAIT_TIME]
+    プロセスフロー情報_ABC製品リスト[ABC製品リスト]
+    プロセスフロー情報_ABC_TYPE_FLAG[ABC_TYPE_FLAG]
+    プロセスフロー情報_CTB[CTB]
+    プロセスフロー情報_MRC2[MRC2]
+    プロセスフロー情報_ABC_SEQ[ABC_SEQ]
+    プロセスフロー情報_PL_SEQ[PL_SEQ]
+    プロセスフロー情報_BLOCK[BLOCK]
+    プロセスフロー情報_OUTDAYS[OUTDAYS]
+    プロセスフロー情報_PROCESS_DATE[PROCESS_DATE]
+    プロセスフロー情報_Manual_input[Manual_input]
+  end
+  subgraph 進捗管理板
+    進捗管理板_進捗フロー[進捗フロー]
+    進捗管理板_進捗日[進捗日]
+    進捗管理板_出荷日[出荷日]
+  end
+  subgraph INIファイル
+    INIファイル_スキップフラグ[スキップフラグ]
+  end
+  subgraph KSR_SETTING
+    KSR_SETTING_TYPE2[TYPE2]
+    KSR_SETTING_MRC2[MRC2]
+    KSR_SETTING_ATR[ATR]
+    KSR_SETTING_Manual_input[Manual_input]
+    KSR_SETTING_COMMON[COMMON]
+    KSR_SETTING_PRODSPEC_ID[PRODSPEC_ID]
+    KSR_SETTING_Judge[Judge]
+  end
+  subgraph マージフローマスタ
+    マージフローマスタ_CATEGORY[CATEGORY]
+    マージフローマスタ_SEQ_NO[SEQ_NO]
+    マージフローマスタ_KOUTEI[KOUTEI]
+    マージフローマスタ_OPE_NO[OPE_NO]
+    マージフローマスタ_Manual_input[Manual_input]
+    マージフローマスタ_EQP_GROUP[EQP_GROUP]
+    マージフローマスタ_MRC[MRC]
+    マージフローマスタ_ZONE[ZONE]
+    マージフローマスタ_BLOCK_NO[BLOCK_NO]
+    マージフローマスタ_TIME_RESTRECT_MEMO[TIME_RESTRECT_MEMO]
+  end
+  subgraph 一貫フロー神様
+    一貫フロー神様_CTB[CTB]
+    一貫フロー神様_TYPE[TYPE]
+    一貫フロー神様_MAIN_PD_ID[MAIN_PD_ID]
+    一貫フロー神様_OPE_NO[OPE_NO]
+    一貫フロー神様_MRC2[MRC2]
+    一貫フロー神様_EQG[EQG]
+    一貫フロー神様_ABC_SEQ[ABC_SEQ]
+    一貫フロー神様_PL_SEQ[PL_SEQ]
+    一貫フロー神様_BLOCK[BLOCK]
+    一貫フロー神様_PROGRESS_DATE[PROGRESS_DATE]
+    一貫フロー神様_RPT[RPT]
+  end
+  subgraph カテゴリ変換マスタ
+    カテゴリ変換マスタ_CATEGORY[CATEGORY]
+    カテゴリ変換マスタ_Manual_input[Manual_input]
+    カテゴリ変換マスタ_CATEGORY_CONV[CATEGORY_CONV]
+  end
+  subgraph 子カテゴリ変換マスタ
+    子カテゴリ変換マスタ_TYPE[TYPE]
+    子カテゴリ変換マスタ_Manual_input[Manual_input]
+    子カテゴリ変換マスタ_CATEGORY_CHILD[CATEGORY_CHILD]
+  end
+  subgraph 予測LT
+    予測LT_MAIN_PD_ID[MAIN_PD_ID]
+    予測LT_OPE_NO[OPE_NO]
+    予測LT_ESTIMATE_LT[ESTIMATE_LT]
+    予測LT_LT_WAFER_QTY[LT_WAFER_QTY]
+    予測LT_ESTIMATE_WAIT_TIME[ESTIMATE_WAIT_TIME]
+  end
+  装置工程マスタ_EQP_PROCESS --> 管理装置GPマスタ_EQP_PROCESS
+  E-gis損失計画_設備Gp --> 管理装置GPマスタ_EQP_GRP_CONV
+  統合装置Gp変換_EQP_GRP_INTEG --> 管理装置GPマスタ_EQP_GRP_INTEG
+  E-gis損失計画_装置ID --> 管理装置GPマスタ_EQP_ID
+  管理装置GPマスタ_Manual_input --> 管理装置GPマスタ_AVAIL_FLG
+  管理装置GPマスタ_TACT_summary --> 管理装置GPマスタ_EQP_GRP_TACT
+  TACT計算表_CALC_TYPE --> 管理装置GPマスタ_CALC_TYPE
+  E-gis損失計画_装置ID --> 装置工程マスタ_EQP_ID_INITIAL
+  装置工程マスタ_Manual_input --> 装置工程マスタ_EQP_PROCESS
+  E-gis損失計画_設備Gp --> 統合装置Gp変換_EQP_GRP_CONV
+  統合装置Gp変換_Manual_input --> 統合装置Gp変換_EQP_GRP_INTEG
+  TACT計算表_Manual_input --> TACT計算表_CALC_TYPE
+  TACT計算表_Manual_input --> TACT計算表_RESULT_SELECTION
+  TACT計算表_Manual_input --> TACT計算表_T0
+  TACT計算表_Manual_input --> TACT計算表_OUTPUT_SELECTION
+  TACT計算表_Manual_input --> TACT計算表_COEFFICIENT
+  SiView_品質管理表 --> 装置Gp変換_RECIPE_NAME_SPACE_ID
+  装置Gp変換_Manual_input --> 装置Gp変換_EQP_GRP_CONV
+  基月検証_年月 --> 設備稼働計画_DUE_DATE
+  基月検証_設備Gp --> 設備稼働計画_EQP_GRP_CONV
+  基月検証_段取 --> 設備稼働計画_ENG_STATE_RATIO
+  基月検証_点検 --> 設備稼働計画_SDT_STATE_RATIO
+  基月検証_故障 --> 設備稼働計画_UDT_STATE_RATIO
+  基月検証_デバッグ --> 設備稼働計画_NST_STATE_RATIO
+  基月検証_保有 --> 設備稼働計画_SBY_STATE_RATIO
+  基月検証_負荷率 --> 設備稼働計画_SBY_STATE_RATIO
+  基月検証_保有 --> 設備稼働計画_PRD_STATE_RATIO
+  基月検証_待機 --> 設備稼働計画_PRD_STATE_RATIO
+  基月検証_保有 --> 設備稼働計画_HOYU_RATIO
+  基月検証_負荷率 --> 設備稼働計画_LOAD_RATIO
+  基月検証_基礎設定シート --> 装置GP処理能力_BASE_MONTH
+  基月検証_年月 --> 装置GP処理能力_CLAIM_TIME
+  基月検証_設備Gp --> 装置GP処理能力_EQP_GRP_CONV
+  基月検証_装置ID --> 装置GP処理能力_EQP_ID
+  基月検証_稼働日 --> 装置GP処理能力_FACTORYRUN_DAY
+  基月検証_作業数_s_per_月 --> 装置GP処理能力_ABILITY
+  基月検証_負荷率 --> 装置GP処理能力_ABILITY
+  基月検証_能力換算台数 --> 装置GP処理能力_ABILITY
+  基月検証_各設備の換算台数 --> 装置GP処理能力_ABILITY
+  汎用化フォローリスト_工程 --> 汎用化情報_EQP_PROCESS
+  汎用化フォローリスト_設備Gp --> 汎用化情報_EQP_GRP_ID
+  汎用化フォローリスト_Type --> 汎用化情報_TYPE
+  汎用化フォローリスト_AAコード --> 汎用化情報_MAIN_PD_ID
+  汎用化フォローリスト_Ope --> 汎用化情報_OPE_NO
+  汎用化フォローリスト_号機No --> 汎用化情報_EQP_ID
+  汎用化フォローリスト_最新リリース可能日 --> 汎用化情報_USAGE_START_DATE
+  工場停止計画_工場停止計画 --> 非稼働日設定_設定日
+  非稼働日設定_Manual_input --> 非稼働日設定_操業度
+  Sigma基礎情報設定依頼書_フロー情報 --> カテゴリマスタ_USE_FLAG_MASTER
+  Sigma基礎情報設定依頼書_代用タイプ --> カテゴリマスタ_USE_FLAG_MASTER
+  Sigma基礎情報設定依頼書_フロー情報 --> カテゴリマスタ_USE_FLAG_REOL
+  Sigma基礎情報設定依頼書_代用タイプ --> カテゴリマスタ_USE_FLAG_REOL
+  Sigma基礎情報設定依頼書_フロー情報 --> カテゴリマスタ_USE_FLAG_CUSTOM
+  Sigma基礎情報設定依頼書_代用タイプ --> カテゴリマスタ_USE_FLAG_CUSTOM
+  Sigma基礎情報設定依頼書_フロー情報 --> カテゴリマスタ_FLAG
+  Sigma基礎情報設定依頼書_代用タイプ --> カテゴリマスタ_FLAG
+  Sigma基礎情報設定依頼書_代用タイプ --> カテゴリマスタ_INFO_OUT_FLAG
+  Sigma基礎情報設定依頼書_SiView_code --> デバイスタイプマスタ_PRODSPEC_ID
+  TIMES_投入計画 --> デバイスタイプマスタ_PRODSPEC_ID
+  CIS_AAコード一覧_テクノロジー --> デバイスタイプマスタ_CATEGORY
+  モーションボード_モーションボード --> デバイスタイプマスタ_CATEGORY
+  Sigma基礎情報設定依頼書_Item_name_DIN --> デバイスタイプマスタ_PRODUCT
+  モーションボード_モーションボード --> デバイスタイプマスタ_PRODUCT
+  Sigma基礎情報設定依頼書_Item_name_DIN --> デバイスタイプマスタ_TYPE
+  モーションボード_モーションボード --> デバイスタイプマスタ_TYPE
+  TIMES_品目名 --> デバイスタイプマスタ_ASP_PROC_NAME
+  デバイスタイプマスタ_Manual_input --> デバイスタイプマスタ_BUSSINES_DIVISION
+  デバイスタイプマスタ_自動取得 --> デバイスタイプマスタ_PRODUCTION_TEC
+  デバイスタイプマスタ_自動取得 --> デバイスタイプマスタ_DISCON_FLAG
+  デバイスタイプマスタ_自動取得 --> デバイスタイプマスタ_NON_DEMAND_FLAG
+  デバイスタイプマスタ_自動取得 --> デバイスタイプマスタ_PRODUCT_CATEGORY
+  デバイスタイプマスタ_Manual_input --> デバイスタイプマスタ_PRODUCT_CATEGORY
+  デバイスタイプマスタ_自動取得 --> デバイスタイプマスタ_ALTERNATIVE_TYPE
+  デバイスタイプマスタ_Manual_input --> デバイスタイプマスタ_ALTERNATIVE_TYPE
+  デバイスタイプマスタ_自動取得 --> 工程パターンマスタ_PRODSPEC_ID
+  デバイスタイプマスタ_Manual_input --> 工程パターンマスタ_ZONE
+  デバイスタイプマスタ_Manual_input --> 工程パターンマスタ_ST_PD_NAME
+  デバイスタイプマスタ_Manual_input --> 工程パターンマスタ_END_PD_NAME
+  Sigma基礎情報設定依頼書_SiView_code --> デバイスタイプマスタ_PRODSPEC_ID
+  TIMES_投入計画 --> デバイスタイプマスタ_PRODSPEC_ID
+  Sigma基礎情報設定依頼書_フロー情報 --> デバイスタイプマスタ_USE_FLAG_MASTER
+  デバイスタイプマスタ_Manual_input --> デバイスタイプマスタ_USE_FLAG_MASTER
+  Sigma基礎情報設定依頼書_フロー情報 --> デバイスタイプマスタ_USE_FLAG_REOL
+  デバイスタイプマスタ_Manual_input --> デバイスタイプマスタ_USE_FLAG_REOL
+  Sigma基礎情報設定依頼書_フロー情報 --> デバイスタイプマスタ_USE_FLAG_CUSTOM
+  デバイスタイプマスタ_Manual_input --> デバイスタイプマスタ_USE_FLAG_CUSTOM
+  Sigma基礎情報設定依頼書_フロー情報 --> デバイスタイプマスタ_FLAG
+  デバイスタイプマスタ_Manual_input --> デバイスタイプマスタ_FLAG
+  デバイスタイプマスタ_Manual_input --> デバイスタイプマスタ_INFO_OUT_FLAG
+  デバイスタイプマスタ_Manual_input --> デバイスタイプマスタ_REPRESENTATIVE_TYPE
+  デバイスタイプマスタ_Manual_input --> デバイスタイプマスタ_REPRESENTATIVE_TARGET
+  マスタカテゴリー_CATEGORY --> プロセスフロー情報_CATEGORY
+  マスタカテゴリー_TYPE --> プロセスフロー情報_TYPE
+  DWH_RTR_MAIN_PD_ID --> プロセスフロー情報_MAIN_PD_ID
+  マスタカテゴリー_MRC --> プロセスフロー情報_MRC
+  DWH_RTR_LOC_SEQ_NO --> プロセスフロー情報_LOC_SEQ_NO
+  DWH_RTR_ALL_OPE_SEQ_NO --> プロセスフロー情報_ALL_OPE_SEQ_NO
+  DWH_RTR_OPE_NO --> プロセスフロー情報_OPE_NO
+  DWH_RTR_CAST_CATEGORY --> プロセスフロー情報_CAST_CATEGORY
+  DWH_RTR_CONTAMI_FOUP_IN --> プロセスフロー情報_CONTAMI_FOUP_IN
+  DWH_RTR_CONTAMI_STAUS_IN --> プロセスフロー情報_CONTAMI_STAUS_IN
+  DWH_RTR_CONTAMI_FOUP_OUT --> プロセスフロー情報_CONTAMI_FOUP_OUT
+  DWH_RTR_CONTAMI_STAUS_OUT --> プロセスフロー情報_CONTAMI_STAUS_OUT
+  DWH_RTR_FOUP_CHG --> プロセスフロー情報_FOUP_CHG
+  DWH_RTR_CLIN_FLAG --> プロセスフロー情報_CLIN_FLAG
+  DWH_RTR_キャリア交換 --> プロセスフロー情報_CA_CHG_FLAG
+  DWH_RTR_ウェハID読み込み --> プロセスフロー情報_WAFER_ID_READ
+  DWH_RTR_設備グループ --> プロセスフロー情報_EQP_GRP_ID
+  装置Gp変換_EQP_GRP_CONV --> プロセスフロー情報_EQP_GRP_CONV
+  DWH_RTR_ロジカルレシピ --> プロセスフロー情報_LC_RECIPE_ID
+  DWH_RTR_作業全設備 --> プロセスフロー情報_ALL_EQP_ID
+  DWH_RTR_作業全設備 --> プロセスフロー情報_INHIBIT_EQP_ID
+  DWH_RTR_作業全設備 --> プロセスフロー情報_EQP_ID
+  INIファイル_スキップフラグ --> プロセスフロー情報_SKIP_FLG
+  DWH_RTR_再処理プロセスID --> プロセスフロー情報_REWORK_PROCESS_ID
+  DWH_RTR_再生戻り作業 --> プロセスフロー情報_RW_RETURN_OPE
+  DWH_RTR_最大再生回数 --> プロセスフロー情報_MAX_REWORK_CNT
+  DWH_RTR_Qtime時間 --> プロセスフロー情報_QTIME
+  DWH_RTR_Qtimeターゲット工程 --> プロセスフロー情報_TAGET_OPE_NO
+  DWH_RTR_ラグタイム時間 --> プロセスフロー情報_LAGTIME
+  DWH_RTR_パージ要求 --> プロセスフロー情報_PURGE_REQUIRE
+  DWH_RTR_処理時間 --> プロセスフロー情報_PROCESS_TIME
+  進捗管理板_出荷日 --> プロセスフロー情報_OUT_DAYS
+  進捗管理板_進捗日 --> プロセスフロー情報_PROGRESS_DATE
+  進捗管理板_進捗フロー --> プロセスフロー情報_PROGRESS_FLOW
+  プロセスフロー情報_DM --> プロセスフロー情報_PLAN_LT_MIN
+  プロセスフロー情報_PLAN_LT_MIN --> プロセスフロー情報_ESTIMATE_LT
+  プロセスフロー情報_PROCESS_TIME --> プロセスフロー情報_ESTIMATE_WAIT_TIME
+  プロセスフロー情報_ABC製品リスト --> プロセスフロー情報_ABC_TYPE_FLAG
+  プロセスフロー情報_OPE_NO --> プロセスフロー情報_CTB
+  プロセスフロー情報_ABC製品リスト --> プロセスフロー情報_TYPE
+  プロセスフロー情報_MRC --> プロセスフロー情報_MRC2
+  プロセスフロー情報_Manual_input --> プロセスフロー情報_ABC_SEQ
+  プロセスフロー情報_ALL_OPE_SEQ_NO --> プロセスフロー情報_PL_SEQ
+  プロセスフロー情報_Manual_input --> プロセスフロー情報_BLOCK
+  プロセスフロー情報_OUTDAYS --> プロセスフロー情報_PROGRESS_DATE
+  プロセスフロー情報_PROCESS_DATE --> プロセスフロー情報_PROGRESS_DATE
+  KSR_SETTING_TYPE2 --> KSR_SETTING_MRC2
+  KSR_SETTING_ATR --> KSR_SETTING_COMMON
+  KSR_SETTING_Manual_input --> KSR_SETTING_COMMON
+  KSR_SETTING_Manual_input --> KSR_SETTING_Judge
+  マスタカテゴリー_MRC --> マージフローマスタ_CATEGORY
+  マージフローマスタ_SEQ_NO --> マージフローマスタ_SEQ_NO
+  プロセスフロー情報_OPE_NO --> マージフローマスタ_KOUTEI
+  プロセスフロー情報_OPE_NO --> マージフローマスタ_OPE_NO
+  マージフローマスタ_Manual_input --> マージフローマスタ_EQP_GROUP
+  マスタカテゴリー_MRC --> マージフローマスタ_MRC
+  マージフローマスタ_ZONE --> マージフローマスタ_ZONE
+  プロセスフロー情報_OPE_NO --> 一貫フロー神様_CTB
+  プロセスフロー情報_ABC製品リスト --> 一貫フロー神様_TYPE
+  プロセスフロー情報_MAIN_PD_ID --> 一貫フロー神様_MAIN_PD_ID
+  プロセスフロー情報_OPE_NO --> 一貫フロー神様_OPE_NO
+  プロセスフロー情報_MRC --> 一貫フロー神様_MRC2
+  プロセスフロー情報_EQP_GRP_ID --> 一貫フロー神様_EQG
+  プロセスフロー情報_ALL_OPE_SEQ_NO --> 一貫フロー神様_PL_SEQ
+  カテゴリ変換マスタ_CATEGORY --> カテゴリ変換マスタ_CATEGORY
+  カテゴリ変換マスタ_Manual_input --> カテゴリ変換マスタ_CATEGORY_CONV
+  子カテゴリ変換マスタ_Manual_input --> 子カテゴリ変換マスタ_CATEGORY_CHILD
