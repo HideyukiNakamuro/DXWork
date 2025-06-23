@@ -5,6 +5,37 @@
     "nodes": []
   },
   {
+    "sheet": "E-gis損失計画",
+    "subgraph": "E-gis損失計画",
+    "nodes": [
+      {
+        "name": "",
+        "node": "設備Gp",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+             "from_subgraph": "",
+             "from_node": ""
+          }
+         ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "node": "装置ID",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+             "from_subgraph": "",
+             "from_node": ""
+          }
+         ],
+        "memo": "Excelに存在しないので追加"
+      }
+    ]
+  },
+  {
     "sheet": "管理装置GPマスタ",
     "subgraph": "管理装置GPマスタ",
     "nodes": [
@@ -15,11 +46,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "装置工程マスタ",
+            "from_node": "工程"
           }
         ],
-        "memo": ""
+        "memo": "担当者の最終確認が必要"
       },
       {
         "name": "管理装置Gp",
@@ -28,8 +59,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "E-gis損失計画",
+            "from_node": "設備Gp"
           }
         ],
         "memo": ""
@@ -41,11 +72,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "統合装置Gp変換",
+            "from_node": "統合装置Gp"
           }
         ],
-        "memo": ""
+        "memo": "統合装置Gp変換マスタってなに？"
       },
       {
         "name": "装置ID",
@@ -54,10 +85,25 @@
         "display": "o",
         "from": [
           {
+            "from_subgraph": "E-gis損失計画",
+            "from_node": "装置ID"
+          }
+        ],
+        "memo": ""
+      },
+      {
+        "name": "",
+        "node": "Manual_input",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
             "from_subgraph": "",
             "from_node": ""
           }
         ],
+        "from_subgraph": "",
+        "from_node": "",
         "memo": ""
       },
       {
@@ -65,6 +111,18 @@
         "node": "AVAIL_FLG",
         "connect": "プロセス技術と相談の上、手動入力",
         "display": "o",
+        "from": [
+          {
+            "from_subgraph": "管理装置GPマスタ",
+            "from_node": "Manual_input"
+          }
+        ],
+        "memo": "プロセス技術と相談が必要"
+      },
+      {
+        "node": "TACT_summary",
+        "connect": "",
+        "display": "",
         "from": [
           {
             "from_subgraph": "",
@@ -80,11 +138,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "管理装置GPマスタ",
+            "from_node": "TACT_summary"
           }
         ],
-        "memo": ""
+        "memo": "TACT_summaryを参考に手動入力"
       },
       {
         "name": "CalcType",
@@ -93,11 +151,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "TACT計算表",
+            "from_node": "CalcType"
           }
         ],
-        "memo": ""
+        "memo": "暫定対応ではプロセス技術と相談が必要"
       },
       {
         "name": "換算台数",
@@ -125,6 +183,19 @@
         "display": "o",
         "from": [
           {
+            "from_subgraph": "E-gis損失計画",
+            "from_node": "装置ID"
+          }
+        ],
+        "memo": "未登録の文字の場合に新規登録"
+      },
+      {
+        "name": "",
+        "node": "Manual_input",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
             "from_subgraph": "",
             "from_node": ""
           }
@@ -138,60 +209,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "装置工程マスタ",
+            "from_node": "Manual_input"
           }
         ],
         "memo": ""
@@ -209,6 +228,19 @@
         "display": "o",
         "from": [
           {
+            "from_subgraph": "E-gis損失計画",
+            "from_node": "設備Gp"
+          }
+        ],
+        "memo": ""
+      },
+      {
+        "name": "",
+        "node": "Manual_input",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
             "from_subgraph": "",
             "from_node": ""
           }
@@ -222,63 +254,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "統合装置Gp変換",
+            "from_node": "Manual_input"
           }
         ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
+        "memo": "管理装置Gpが追加された際に、既存の統合Gpに紐づかない場合、新規登録"
       }
     ]
   },
@@ -287,10 +267,10 @@
     "subgraph": "TACT計算表",
     "nodes": [
       {
-        "name": "CalcType",
-        "node": "CALC_TYPE",
-        "connect": "管理装置Gpマスタに新規登録される管理装置Gpが既存のCalcTypeに当てはまらない場合、TACT_summaryを参考に手動登録",
-        "display": "o",
+        "name": "",
+        "node": "Manual_input",
+        "connect": "",
+        "display": "",
         "from": [
           {
             "from_subgraph": "",
@@ -298,6 +278,19 @@
           }
         ],
         "memo": ""
+      },
+      {
+        "name": "CalcType",
+        "node": "CALC_TYPE",
+        "connect": "管理装置Gpマスタに新規登録される管理装置Gpが既存のCalcTypeに当てはまらない場合、TACT_summaryを参考に手動登録",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "TACT計算表",
+            "from_node": "Manual_input"
+          }
+        ],
+        "memo": "管理装置Gpマスタに新規登録される管理装置Gpが既存のCalcTypeに当てはまらない場合、TACT_summaryを参考に手動登録"
       },
       {
         "name": "実績選択",
@@ -306,11 +299,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "TACT計算表",
+            "from_node": "Manual_input"
           }
         ],
-        "memo": ""
+        "memo": "CalcTypeの追加タイミングでTACT_summaryを参考に手動入力"
       },
       {
         "name": "T0",
@@ -319,11 +312,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "TACT計算表",
+            "from_node": "Manual_input"
           }
         ],
-        "memo": ""
+        "memo": "CalcTypeの追加タイミングでTACT_summaryを参考に手動入力"
       },
       {
         "name": "取数選択",
@@ -332,11 +325,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "TACT計算表",
+            "from_node": "Manual_input"
           }
         ],
-        "memo": ""
+        "memo": "CalcTypeの追加タイミングでTACT_summaryを参考に手動入力"
       },
       {
         "name": "係数",
@@ -345,92 +338,33 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "TACT計算表",
+            "from_node": "Manual_input"
           }
         ],
-        "memo": ""
-      },
-      {
-        "name": "予約1",
-        "node": "-",
-        "connect": "廃止",
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": "予約2",
-        "node": "-",
-        "connect": "廃止",
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
+        "memo": "CalcTypeの追加タイミングでTACT_summaryを参考に手動入力"
       }
     ]
   },
+  {
+    "sheet": "SiView",
+    "subgraph": "SiView",
+    "nodes": [
+      {
+        "name": "品質管理表",
+        "node": "品質管理表",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      }
+    ]
+  },  
   {
     "sheet": "装置Gp変換",
     "subgraph": "装置Gp変換",
@@ -440,6 +374,19 @@
         "node": "RECIPE_NAME_SPACE_ID",
         "connect": "SiViewの品質管理表から日次処理で自動取得",
         "display": "o",
+        "from": [
+          {
+            "from_subgraph": "SiView",
+            "from_node": "品質管理表"
+          }
+        ],
+        "memo": ""
+      },
+      {
+        "name": "",
+        "node": "Manual_input",
+        "connect": "",
+        "display": "",
         "from": [
           {
             "from_subgraph": "",
@@ -455,11 +402,225 @@
         "display": "o",
         "from": [
           {
+            "from_subgraph": "装置Gp変換",
+            "from_node": "Manual_input"
+          }
+        ],
+        "memo": ""
+      }
+    ]
+  },
+  {
+    "sheet": "基月検証",
+    "subgraph": "基月検証",
+    "nodes": [
+      {
+        "name": "年月",
+        "node": "年月",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
             "from_subgraph": "",
             "from_node": ""
           }
         ],
-        "memo": ""
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "設備Gp",
+        "node": "設備Gp",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "装置ID",
+        "node": "装置ID",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "段取",
+        "node": "段取",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "点検",
+        "node": "点検",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "故障",
+        "node": "故障",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "デバッグ",
+        "node": "デバッグ",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "保有",
+        "node": "保有",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "負荷率",
+        "node": "負荷率",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "待機",
+        "node": "待機",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "稼働",
+        "node": "稼働",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "作業数_s_per_月",
+        "node": "作業数_s_per_月",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "能力換算台数",
+        "node": "能力換算台数",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "各設備の換算台数",
+        "node": "各設備の換算台数",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "基礎設定シート",
+        "node": "基礎設定シート",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "稼働日",
+        "node": "稼働日",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
       }
     ]
   },
@@ -474,11 +635,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "基月検証",
+            "from_node": "年月"
           }
         ],
-        "memo": ""
+        "memo": "恒久対応ではDB化した基月検証から取得"
       },
       {
         "name": "管理装置Gp",
@@ -487,11 +648,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "基月検証",
+            "from_node": "設備Gp"
           }
         ],
-        "memo": ""
+        "memo": "恒久対応ではDB化した基月検証から取得"
       },
       {
         "name": "段取(ENG)",
@@ -500,11 +661,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "基月検証",
+            "from_node": "段取"
           }
         ],
-        "memo": ""
+        "memo": "恒久対応ではDB化した基月検証から取得"
       },
       {
         "name": "点検(SDT)",
@@ -513,11 +674,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "基月検証",
+            "from_node": "点検"
           }
         ],
-        "memo": ""
+        "memo": "恒久対応ではDB化した基月検証から取得"
       },
       {
         "name": "故障(UDT)",
@@ -526,8 +687,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "基月検証",
+            "from_node": "故障"
           }
         ],
         "memo": ""
@@ -539,8 +700,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "基月検証",
+            "from_node": "デバッグ"
           }
         ],
         "memo": ""
@@ -552,11 +713,15 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "基月検証",
+            "from_node": "保有"
+          },
+          {
+            "from_subgraph": "基月検証",
+            "from_node": "負荷率"
           }
         ],
-        "memo": ""
+        "memo": "【待機】=【保有】×(1-【負荷率】)"
       },
       {
         "name": "稼動(PRD)",
@@ -565,11 +730,15 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "基月検証",
+            "from_node": "保有"
+          },
+          {
+            "from_subgraph": "基月検証",
+            "from_node": "待機"
           }
         ],
-        "memo": ""
+        "memo": "【稼働】 = 【保有】-【待機】"
       },
       {
         "name": "保有",
@@ -578,8 +747,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "基月検証",
+            "from_node": "保有"
           }
         ],
         "memo": ""
@@ -591,8 +760,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "基月検証",
+            "from_node": "負荷率"
           }
         ],
         "memo": ""
@@ -610,69 +779,178 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "基月検証",
+            "from_node": "基礎設定シート"
           }
         ],
         "memo": ""
       },
       {
         "name": "年月",
-        "node": "\tCLAIM_TIME",
+        "node": "CLAIM_TIME",
         "connect": "基月検証の【年月】\n\n※恒久対応ではDB化した基月検証から取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "基月検証",
+            "from_node": "年月"
           }
         ],
         "memo": ""
       },
       {
         "name": "管理装置Gp",
-        "node": "\tEQP_GRP_CONV",
+        "node": "EQP_GRP_CONV",
         "connect": "基月検証の【設備Gp】\n\n※恒久対応ではDB化した基月検証から取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "基月検証",
+            "from_node": "設備Gp"
           }
         ],
         "memo": ""
       },
       {
         "name": "装置ID",
-        "node": "\tEQP_ID",
+        "node": "EQP_ID",
         "connect": "基月検証の装置IDをアンピボット変換\n\n※恒久対応ではDB化した基月検証から取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "基月検証",
+            "from_node": "装置ID"
           }
         ],
-        "memo": ""
+        "memo": "基月検証の装置IDをアンピボット変換"
       },
       {
         "name": "稼働日",
-        "node": "\tFACTORYRUN_DAY",
+        "node": "FACTORYRUN_DAY",
         "connect": "基月検証ツールの【稼働日】\n\n※恒久対応ではDB化した基月検証から取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "基月検証",
+            "from_node": "稼働日"
           }
         ],
         "memo": ""
       },
       {
         "name": "能力値",
-        "node": "\tABILITY",
+        "node": "ABILITY",
         "connect": "基月検証ツールの【作業数(s/月)】、【負荷率】、【能力換算台数】、各設備の【換算台数】を取得し、下記の計算式によって算出\n【能力値】=【作業数(s/月)】/【負荷率】/【能力換算台数】/【各設備の換算台数】\n\n※恒久対応ではDB化した基月検証側の計算結果を直接取得",
         "display": "o",
+        "from": [
+          {
+            "from_subgraph": "基月検証",
+            "from_node": "作業数_s_per_月"
+          },
+          {
+            "from_subgraph": "基月検証",
+            "from_node": "負荷率"
+          },
+          {
+            "from_subgraph": "基月検証",
+            "from_node": "能力換算台数"
+          },
+          {
+            "from_subgraph": "基月検証",
+            "from_node": "各設備の換算台数"
+          }
+        ],
+        "memo": "【能力値】=【作業数(s/月)】/【負荷率】/【能力換算台数】/【各設備の換算台数】"
+      }
+    ]
+  },
+  {
+    "sheet": "汎用化フォローリスト",
+    "subgraph": "汎用化フォローリスト",
+    "nodes": [
+      {
+        "name": "工程",
+        "node": "工程",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "設備Gp",
+        "node": "設備Gp",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "Type",
+        "node": "Type",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "AAコード",
+        "node": "AAコード",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "Ope",
+        "node": "Ope",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "号機No",
+        "node": "号機No",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": ""
+      },
+      {
+        "name": "最新リリース可能日",
+        "node": "最新リリース可能日",
+        "connect": "",
+        "display": "",
         "from": [
           {
             "from_subgraph": "",
@@ -694,8 +972,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "汎用化フォローリスト",
+            "from_node": "工程"
           }
         ],
         "memo": ""
@@ -707,8 +985,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "汎用化フォローリスト",
+            "from_node": "設備Gp"
           }
         ],
         "memo": ""
@@ -720,8 +998,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "汎用化フォローリスト",
+            "from_node": "Type"
           }
         ],
         "memo": ""
@@ -733,8 +1011,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "汎用化フォローリスト",
+            "from_node": "AAコード"
           }
         ],
         "memo": ""
@@ -746,8 +1024,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "汎用化フォローリスト",
+            "from_node": "Ope"
           }
         ],
         "memo": ""
@@ -759,8 +1037,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "汎用化フォローリスト",
+            "from_node": "号機No"
           }
         ],
         "memo": ""
@@ -772,8 +1050,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "汎用化フォローリスト",
+            "from_node": "最新リリース可能日"
           }
         ],
         "memo": ""
@@ -789,7 +1067,26 @@
             "from_node": ""
           }
         ],
-        "memo": ""
+        "memo": "空白をセット"
+      }
+    ]
+  },
+  {
+    "sheet": "工場停止計画",
+    "subgraph": "工場停止計画",
+    "nodes": [
+      {
+        "name": "工場停止計画",
+        "node": "工場停止計画",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
       }
     ]
   },
@@ -799,9 +1096,22 @@
     "nodes": [
       {
         "name": "設定日",
-        "node": "-",
+        "node": "設定日",
         "connect": "工場停止計画から取得",
         "display": "o",
+        "from": [
+          {
+            "from_subgraph": "工場停止計画",
+            "from_node": "工場停止計画"
+          }
+        ],
+        "memo": ""
+      },
+      {
+        "name": "Manual_input",
+        "node": "Manual_input",
+        "connect": "",
+        "display": "",
         "from": [
           {
             "from_subgraph": "",
@@ -812,23 +1122,76 @@
       },
       {
         "name": "操業度",
-        "node": "-",
+        "node": "操業度",
         "connect": "非稼働日の前後で手入力で意思入れ\n非稼働日の前後で立ち上がり具合を考慮した操業度を入力",
         "display": "o",
+        "from": [
+          {
+            "from_subgraph": "非稼働日設定",
+            "from_node": "Manual_input"
+          }
+        ],
+        "memo": "非稼働日の前後で手入力で意思入れ\n非稼働日の前後で立ち上がり具合を考慮した操業度を入力"
+      }
+    ]
+  },
+  {
+    "sheet": "Sigma基礎情報設定依頼書",
+    "subgraph": "Sigma基礎情報設定依頼書",
+    "nodes": [
+      {
+        "name": "フロー情報",
+        "node": "フロー情報",
+        "connect": "",
+        "display": "",
         "from": [
           {
             "from_subgraph": "",
             "from_node": ""
           }
         ],
-        "memo": ""
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "代用タイプ",
+        "node": "代用タイプ",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "SiView_code",
+        "node": "SiView_code",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "Item_name_DIN",
+        "node": "Item_name_DIN",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
       }
     ]
-  },
-  {
-    "sheet": "Sheet_▶工程フロー",
-    "subgraph": "Sheet_▶工程フロー",
-    "nodes": []
   },
   {
     "sheet": "カテゴリマスタ",
@@ -887,7 +1250,7 @@
         "memo": ""
       },
       {
-        "name": "MASTER\n計画LT",
+        "name": "MASTER計画LT",
         "node": "LT_DAY_PLAN_MASTER",
         "connect": "流動実績を元に値を決定\n流動実績がない場合は想定値を記入して意思入れ\n【製品分類】が見込品の場合は代用タイプの値を入力",
         "display": "x",
@@ -900,7 +1263,7 @@
         "memo": ""
       },
       {
-        "name": "REOL\n計画LT",
+        "name": "REOL計画LT",
         "node": "LT_DAY_PLAN_REOL",
         "connect": "流動実績を元に値を決定\n流動実績がない場合は想定値を記入して意思入れ\n【製品分類】が見込品の場合は代用タイプの値を入力",
         "display": "x",
@@ -926,43 +1289,55 @@
         "memo": ""
       },
       {
-        "name": "MASTER\n使用フラグ",
+        "name": "MASTER使用フラグ",
         "node": "USE_FLAG_MASTER",
         "connect": "【製品分類】が確定品・試作品の場合はSigma基礎情報設定依頼書のフロー情報からデフォルト値を登録し、修正が必要であれば手動入力\n【製品分類】が見込品の場合は代用タイプの値を入力",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
-          }
+            "from_subgraph": "Sigma基礎情報設定依頼書",
+            "from_node": "フロー情報"
+          },
+          {
+            "from_subgraph": "Sigma基礎情報設定依頼書",
+            "from_node": "代用タイプ"
+          }          
         ],
-        "memo": ""
+        "memo": "あくまでデフォルト値。内容を手動修正する必要があり"
       },
       {
-        "name": "REOL\n使用フラグ",
+        "name": "REOL使用フラグ",
         "node": "USE_FLAG_REOL",
         "connect": "【製品分類】が確定品・試作品の場合はSigma基礎情報設定依頼書のフロー情報からデフォルト値を登録し、修正が必要であれば手動入力\n【製品分類】が見込品の場合は代用タイプの値を入力",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "Sigma基礎情報設定依頼書",
+            "from_node": "フロー情報"
+          },
+          {
+            "from_subgraph": "Sigma基礎情報設定依頼書",
+            "from_node": "代用タイプ"
           }
         ],
-        "memo": ""
+        "memo": "あくまでデフォルト値。内容を手動修正する必要があり"
       },
       {
-        "name": "CUSTOM\n使用フラグ",
+        "name": "CUSTOM使用フラグ",
         "node": "USE_FLAG_CUSTOM",
         "connect": "【製品分類】が確定品・試作品の場合はSigma基礎情報設定依頼書のフロー情報からデフォルト値を登録し、修正が必要であれば手動入力\n【製品分類】が見込品の場合は代用タイプの値を入力",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "Sigma基礎情報設定依頼書",
+            "from_node": "フロー情報"
+          },
+          {
+            "from_subgraph": "Sigma基礎情報設定依頼書",
+            "from_node": "代用タイプ"
           }
         ],
-        "memo": ""
+        "memo": "あくまでデフォルト値。内容を手動修正する必要があり"
       },
       {
         "name": "判断用",
@@ -971,14 +1346,18 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "Sigma基礎情報設定依頼書",
+            "from_node": "フロー情報"
+          },
+          {
+            "from_subgraph": "Sigma基礎情報設定依頼書",
+            "from_node": "代用タイプ"
           }
         ],
-        "memo": ""
+        "memo": "あくまでデフォルト値。内容を手動修正する必要があり"
       },
       {
-        "name": "FEOL\n開始工程",
+        "name": "FEOL開始工程",
         "node": "FE_ST_PD_NAME",
         "connect": "VOGF_FEOL1_開始工程の列から取得\n暫定対応としては自動取得し、段階的に廃止していく",
         "display": "x",
@@ -991,7 +1370,7 @@
         "memo": ""
       },
       {
-        "name": "FEOL\n終了工程",
+        "name": "FEOL終了工程",
         "node": "FE_END_PD_NAME",
         "connect": "VOGF_FEOL3_終了工程の列から取得\n暫定対応としては自動取得し、段階的に廃止していく",
         "display": "x",
@@ -1004,7 +1383,7 @@
         "memo": ""
       },
       {
-        "name": "BEOL\n開始工程",
+        "name": "BEOL開始工程",
         "node": "BE_ST_PD_NAME",
         "connect": "VOGF_BEOL_開始工程の列から取得\n暫定対応としては自動取得し、段階的に廃止していく",
         "display": "x",
@@ -1017,7 +1396,7 @@
         "memo": ""
       },
       {
-        "name": "BEOL\n終了工程",
+        "name": "BEOL終了工程",
         "node": "BE_END_PD_NAME",
         "connect": "VOGF_BEOL_終了工程の列から取得\n暫定対応としては自動取得し、段階的に廃止していく",
         "display": "x",
@@ -1030,7 +1409,7 @@
         "memo": ""
       },
       {
-        "name": "MASTER\n開始工程",
+        "name": "MASTER開始工程",
         "node": "M_ST_PD_NAME",
         "connect": "VOGF_FEOL1_開始工程の列から取得\n暫定対応としては自動取得し、段階的に廃止していく",
         "display": "x",
@@ -1043,7 +1422,7 @@
         "memo": ""
       },
       {
-        "name": "MASTER\n終了工程",
+        "name": "MASTER終了工程",
         "node": "M_END_PD_NAME",
         "connect": "VOGF_BEOL_終了工程の列から取得\n暫定対応としては自動取得し、段階的に廃止していく",
         "display": "x",
@@ -1056,7 +1435,7 @@
         "memo": ""
       },
       {
-        "name": "REOL\n開始工程",
+        "name": "REOL開始工程",
         "node": "R_ST_PD_NAME",
         "connect": "VOGF_REOL1_開始工程の列から取得\n暫定対応としては自動取得し、段階的に廃止していく",
         "display": "x",
@@ -1069,7 +1448,7 @@
         "memo": ""
       },
       {
-        "name": "REOL\n終了工程",
+        "name": "REOL終了工程",
         "node": "R_END_PD_NAME",
         "connect": "VOGF_REOL2_終了工程の列から取得\n暫定対応としては自動取得し、段階的に廃止していく",
         "display": "x",
@@ -1082,7 +1461,7 @@
         "memo": ""
       },
       {
-        "name": "CUSTOM\n開始工程",
+        "name": "CUSTOM開始工程",
         "node": "C_ST_PD_NAME",
         "connect": "VOGF_OCCF_開始工程の列から取得\n暫定対応としては自動取得し、段階的に廃止していく",
         "display": "x",
@@ -1095,7 +1474,7 @@
         "memo": ""
       },
       {
-        "name": "CUSTOM\n終了工程",
+        "name": "CUSTOM終了工程",
         "node": "C_END_PD_NAME",
         "connect": "VOGF_OCCF_終了工程の列から取得\n暫定対応としては自動取得し、段階的に廃止していく",
         "display": "x",
@@ -1108,17 +1487,17 @@
         "memo": ""
       },
       {
-        "name": "フロー\n出力判断",
+        "name": "フロー出力判断",
         "node": "INFO_OUT_FLAG",
         "connect": "フローに出力したい場合に１を記入\n【製品分類】が見込品の場合は代用タイプの値を入力",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "Sigma基礎情報設定依頼書",
+            "from_node": "代用タイプ"
           }
         ],
-        "memo": ""
+        "memo": "フローに出力したい場合に１を記入"
       },
       {
         "name": "代表タイプ",
@@ -1383,76 +1762,194 @@
     ]
   },
   {
+    "sheet": "モーションボード",
+    "subgraph": "モーションボード",
+    "nodes": [
+      {
+        "name": "モーションボード",
+        "node": "モーションボード",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      }
+    ]
+  },
+  {
+    "sheet": "モーションボード",
+    "subgraph": "モーションボード",
+    "nodes": [
+      {
+        "name": "モーションボード",
+        "node": "モーションボード",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      }
+    ]
+  },
+  {
+    "sheet": "TIMES",
+    "subgraph": "TIMES",
+    "nodes": [
+      {
+        "name": "投入計画",
+        "node": "投入計画",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "品目名",
+        "node": "品目名",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      }
+    ]
+  },
+  {
+    "sheet": "CIS_AAコード一覧",
+    "subgraph": "CIS_AAコード一覧",
+    "nodes": [
+      {
+        "name": "テクノロジー",
+        "node": "テクノロジー",
+        "connect": "",
+        "display": "",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      }
+    ]
+  },
+  {
     "sheet": "デバイスタイプマスタ",
     "subgraph": "デバイスタイプマスタ",
     "nodes": [
       {
-        "name": "デバイスタイプ",
-        "node": "PRODSPEC_ID",
-        "connect": "自動取得",
-        "display": "o",
+        "name": "自動取得",
+        "node": "自動取得",
+        "connect": "",
+        "display": "",
         "from": [
           {
             "from_subgraph": "",
             "from_node": ""
           }
         ],
-        "memo": ""
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "デバイスタイプ",
+        "node": "PRODSPEC_ID",
+        "connect": "【製品分類】が確定品・試作品の場合はSigma基礎情報設定依頼書の【SiView_code】の左6桁部分から取得.【製品分類】が見込品の場合はTIMES投入計画より取得",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "Sigma基礎情報設定依頼書",
+            "from_node": "SiView_code"
+          },
+          {
+            "from_subgraph": "TIMES",
+            "from_node": "投入計画"
+          }
+        ],
+        "memo": "【製品分類】が確定品・試作品の場合はSigma基礎情報設定依頼書の【SiView_code】の左6桁部分から取得.【製品分類】が見込品の場合はTIMES投入計画より取得"
       },
       {
         "name": "カテゴリー",
         "node": "CATEGORY",
-        "connect": "自動取得",
+        "connect": "【製品分類】が確定品・試作品の場合は、CIS AAコード一覧【テクノロジー】から取得.【製品分類】が見込品の場合はモーションボードより取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "CIS_AAコード一覧",
+            "from_node": "テクノロジー"
+          },
+          {
+            "from_subgraph": "モーションボード",
+            "from_node": "モーションボード"
           }
         ],
-        "memo": ""
+        "memo": "【製品分類】が確定品・試作品の場合は、CIS AAコード一覧【テクノロジー】から取得.【製品分類】が見込品の場合はモーションボードより取得"
       },
       {
         "name": "製品名",
         "node": "PRODUCT",
-        "connect": "自動取得",
+        "connect": "【製品分類】が確定品・試作品の場合はSigma基礎情報設定依頼書の【Item_name_DIN】の左6桁部分から取得.【製品分類】が見込品の場合はモーションボードより取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "Sigma基礎情報設定依頼書",
+            "from_node": "Item_name_DIN"
+          },
+          {
+            "from_subgraph": "モーションボード",
+            "from_node": "モーションボード"
           }
         ],
-        "memo": ""
+        "memo": "【製品分類】が確定品・試作品の場合はSigma基礎情報設定依頼書の【Item_name_DIN】の左6桁部分から取得.【製品分類】が見込品の場合はモーションボードより取得"
       },
       {
         "name": "製品タイプ",
         "node": "TYPE",
-        "connect": "自動取得",
+        "connect": "【製品分類】が確定品・試作品の場合はSigma基礎情報設定依頼書の【Item_name_DIN】から取得.【製品分類】が見込品の場合はモーションボードより取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "Sigma基礎情報設定依頼書",
+            "from_node": "Item_name_DIN"
+          },
+          {
+            "from_subgraph": "モーションボード",
+            "from_node": "モーションボード"
           }
         ],
-        "memo": ""
+        "memo": "【製品分類】が確定品・試作品の場合はSigma基礎情報設定依頼書の【Item_name_DIN】から取得.【製品分類】が見込品の場合はモーションボードより取得"
       },
       {
         "name": "品目名",
         "node": "ASP_PROC_NAME",
-        "connect": "自動取得",
+        "connect": "TIMESより取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "TIMES",
+            "from_node": "品目名"
           }
         ],
-        "memo": ""
+        "memo": "TIMES上での名前は何？"
       },
       {
-        "name": "MASTER\n計画LT",
+        "name": "MASTER計画LT",
         "node": "LT_DAY_PLAN_MASTER",
         "connect": "手動入力",
         "display": "x",
@@ -1894,14 +2391,27 @@
         "memo": ""
       },
       {
+        "name": "Manual_input",
+        "node": "Manual_input",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
         "name": "事業部",
         "node": "BUSSINES_DIVISION",
         "connect": "手動入力",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "デバイスタイプマスタ",
+            "from_node": "Manual_input"
           }
         ],
         "memo": ""
@@ -1913,63 +2423,71 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "デバイスタイプマスタ",
+            "from_node": "自動取得"
           }
         ],
-        "memo": ""
+        "memo": "どこから自動取得？"
       },
       {
         "name": "製造中止フラグ",
         "node": "DISCON_FLAG",
-        "connect": "自動取得",
+        "connect": "TIMES内ISEMI_ITEMSの【INVENTORY_ITEM_STATUS_CODE】から取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "デバイスタイプマスタ",
+            "from_node": "自動取得"
           }
         ],
-        "memo": ""
+        "memo": "どこから自動取得？"
       },
       {
         "name": "需要中止フラグ",
         "node": "NON_DEMAND_FLAG",
-        "connect": "自動算出",
+        "connect": "TIMESの需要情報に一定期間現れないTYPEであれば1とする",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "デバイスタイプマスタ",
+            "from_node": "自動取得"
           }
         ],
-        "memo": ""
+        "memo": "どこから何を取ってどう演算する？"
       },
       {
         "name": "製品分類",
         "node": "PRODUCT_CATEGORY",
-        "connect": "自動入力/手動入力",
+        "connect": "試作品の登録時に自動で試作品とし、試作品が生産品になるタイミングで手動で生産品とする.TIMES投入計画から取得する場合は見込品とする",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "デバイスタイプマスタ",
+            "from_node": "自動取得"
+          },
+          {
+            "from_subgraph": "デバイスタイプマスタ",
+            "from_node": "Manual_input"
           }
         ],
-        "memo": ""
+        "memo": "自動手動をどう切りかえる？どこからとってくる？"
       },
       {
         "name": "代用タイプ",
         "node": "ALTERNATIVE_TYPE",
-        "connect": "自動入力/手動入力",
+        "connect": "【製品分類】が見込品の場合のみモーションボードから取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "デバイスタイプマスタ",
+            "from_node": "自動取得"
+          },
+          {
+            "from_subgraph": "デバイスタイプマスタ",
+            "from_node": "Manual_input"
           }
         ],
-        "memo": ""
+        "memo": "自動手動をどう切りかえる？どこからとってくる？"
       }
     ]
   },
@@ -1980,54 +2498,54 @@
       {
         "name": "デバイスタイプ",
         "node": "PRODSPEC_ID",
-        "connect": "自動取得",
+        "connect": "Sigmaに追加された情報が既存のパターンに合致しない場合、自動追加",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "デバイスタイプマスタ",
+            "from_node": "自動取得"
           }
         ],
-        "memo": ""
+        "memo": "Sigmaに追加された情報が既存のパターンに合致しない場合、自動追加とはどういう意味？"
       },
       {
         "name": "ZONE",
         "node": "ZONE",
-        "connect": "手動",
+        "connect": "Sigmaに追加された情報が既存のパターンに合致しない場合、自動追加",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "デバイスタイプマスタ",
+            "from_node": "Manual_input"
           }
         ],
-        "memo": ""
+        "memo": "Sigmaに追加された情報が既存のパターンに合致しない場合、自動追加とはどういう意味？"
       },
       {
         "name": "開始工程",
         "node": "ST_PD_NAME",
-        "connect": "手動",
+        "connect": "Sigmaに追加された情報が既存のパターンに合致しない場合、自動追加",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "デバイスタイプマスタ",
+            "from_node": "Manual_input"
           }
         ],
-        "memo": ""
+        "memo": "Sigmaに追加された情報が既存のパターンに合致しない場合、自動追加とはどういう意味？"
       },
       {
         "name": "終了工程",
         "node": "END_PD_NAME",
-        "connect": "手動",
+        "connect": "Sigmaに追加された情報が既存のパターンに合致しない場合、自動追加",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "デバイスタイプマスタ",
+            "from_node": "Manual_input"
           }
         ],
-        "memo": ""
+        "memo": "Sigmaに追加された情報が既存のパターンに合致しない場合、自動追加とはどういう意味？"
       }
     ]
   },
@@ -2036,9 +2554,9 @@
     "subgraph": "デバイスタイプマスタ",
     "nodes": [
       {
-        "name": "デバイスタイプ",
-        "node": "PRODSPEC_ID",
-        "connect": "自動取得",
+        "name": "自動取得",
+        "node": "自動取得",
+        "connect": "",
         "display": "o",
         "from": [
           {
@@ -2046,17 +2564,51 @@
             "from_node": ""
           }
         ],
-        "memo": ""
+        "memo": "Excelに存在しないので追加"
       },
       {
-        "name": "MASTER\n使用フラグ",
-        "node": "USE_FLAG_MASTER",
-        "connect": "手動入力",
+        "name": "Manual_input",
+        "node": "Manual_input",
+        "connect": "",
         "display": "o",
         "from": [
           {
             "from_subgraph": "",
             "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "デバイスタイプ",
+        "node": "PRODSPEC_ID",
+        "connect": "【製品分類】が確定品・試作品の場合はSigma基礎情報設定依頼書の【SiView_code】の左6桁部分から取得.【製品分類】が見込品の場合はTIMES投入計画より取得",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "Sigma基礎情報設定依頼書",
+            "from_node": "SiView_code"
+          },
+          {
+            "from_subgraph": "TIMES",
+            "from_node": "投入計画"
+          }
+        ],
+        "memo": "どこから自動取得？"
+      },
+      {
+        "name": "MASTER\n使用フラグ",
+        "node": "USE_FLAG_MASTER",
+        "connect": "【製品分類】が確定品・試作品の場合はSigma基礎情報設定依頼書のフロー情報からデフォルト値を登録し、修正が必要であれば手動入力.【製品分類】が見込品の場合は代用タイプの値を入力",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "Sigma基礎情報設定依頼書",
+            "from_node": "フロー情報"
+          },
+          {
+            "from_subgraph": "デバイスタイプマスタ",
+            "from_node": "Manual_input"
           }
         ],
         "memo": ""
@@ -2064,12 +2616,16 @@
       {
         "name": "REOL\n使用フラグ",
         "node": "USE_FLAG_REOL",
-        "connect": "手動入力",
+        "connect": "【製品分類】が確定品・試作品の場合はSigma基礎情報設定依頼書のフロー情報からデフォルト値を登録し、修正が必要であれば手動入力.【製品分類】が見込品の場合は代用タイプの値を入力",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "Sigma基礎情報設定依頼書",
+            "from_node": "フロー情報"
+          },
+          {
+            "from_subgraph": "デバイスタイプマスタ",
+            "from_node": "Manual_input"
           }
         ],
         "memo": ""
@@ -2077,12 +2633,16 @@
       {
         "name": "CUSTOM\n使用フラグ",
         "node": "USE_FLAG_CUSTOM",
-        "connect": "手動入力",
+        "connect": "【製品分類】が確定品・試作品の場合はSigma基礎情報設定依頼書のフロー情報からデフォルト値を登録し、修正が必要であれば手動入力.【製品分類】が見込品の場合は代用タイプの値を入力",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "Sigma基礎情報設定依頼書",
+            "from_node": "フロー情報"
+          },
+          {
+            "from_subgraph": "デバイスタイプマスタ",
+            "from_node": "Manual_input"
           }
         ],
         "memo": ""
@@ -2090,12 +2650,16 @@
       {
         "name": "判断用",
         "node": "FLAG",
-        "connect": "手動入力",
+        "connect": "【製品分類】が確定品・試作品の場合はSigma基礎情報設定依頼書のフロー情報を見て手動入力.【製品分類】が見込品の場合は代用タイプの値を入力",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "Sigma基礎情報設定依頼書",
+            "from_node": "フロー情報"
+          },
+          {
+            "from_subgraph": "デバイスタイプマスタ",
+            "from_node": "Manual_input"
           }
         ],
         "memo": ""
@@ -2103,12 +2667,12 @@
       {
         "name": "フロー\n出力判断",
         "node": "INFO_OUT_FLAG",
-        "connect": "手動入力",
+        "connect": "フローに出力したい場合に１を記入.【製品分類】が見込品の場合は代用タイプの値を入力",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "デバイスタイプマスタ",
+            "from_node": "Manual_input"
           }
         ],
         "memo": ""
@@ -2120,8 +2684,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "デバイスタイプマスタ",
+            "from_node": "Manual_input"
           }
         ],
         "memo": ""
@@ -2133,11 +2697,374 @@
         "display": "o",
         "from": [
           {
+            "from_subgraph": "デバイスタイプマスタ",
+            "from_node": "Manual_input"
+          }
+        ],
+        "memo": ""
+      }
+    ]
+  },
+ {
+    "sheet": "マスタカテゴリー",
+    "subgraph": "マスタカテゴリー",
+    "nodes": [
+      {
+        "name": "製品カテゴリー",
+        "node": "CATEGORY",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
             "from_subgraph": "",
             "from_node": ""
           }
         ],
-        "memo": ""
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "製品タイプ",
+        "node": "TYPE",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "MRC",
+        "node": "MRC",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      }
+    ]
+  },
+  {
+    "sheet": "DWH_RTR",
+    "subgraph": "DWH_RTR",
+    "nodes": [
+      {
+        "name": "プロセスID",
+        "node": "MAIN_PD_ID",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "ロケーションシーケンス",
+        "node": "LOC_SEQ_NO",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "シーケンス",
+        "node": "ALL_OPE_SEQ_NO",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "工程作業",
+        "node": "OPE_NO",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "FOUPカテゴリー",
+        "node": "CAST_CATEGORY",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "入りコンタミ",
+        "node": "CONTAMI_FOUP_IN",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "入りステータス",
+        "node": "CONTAMI_STAUS_IN",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "出コンタミ",
+        "node": "CONTAMI_FOUP_OUT",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "出ステータス",
+        "node": "CONTAMI_STAUS_OUT",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "FOUP交換",
+        "node": "FOUP_CHG",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "FOUP洗浄",
+        "node": "CLIN_FLAG",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "キャリア交換",
+        "node": "キャリア交換",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "ウェハID読み込み",
+        "node": "ウェハID読み込み",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "設備グループ",
+        "node": "設備グループ",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "ロジカルレシピ",
+        "node": "ロジカルレシピ",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "作業全設備",
+        "node": "作業全設備",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "再処理プロセスID",
+        "node": "再処理プロセスID",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "再生戻り作業",
+        "node": "再生戻り作業",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "最大再生回数",
+        "node": "最大再生回数",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "Qtime時間",
+        "node": "Qtime時間",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "Qtimeターゲット工程",
+        "node": "Qtimeターゲット工程",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "ラグタイム時間",
+        "node": "ラグタイム時間",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "パージ要求",
+        "node": "パージ要求",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "処理時間",
+        "node": "処理時間",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
       }
     ]
   },
@@ -2152,8 +3079,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "マスタカテゴリー",
+            "from_node": "製品カテゴリー"
           }
         ],
         "memo": ""
@@ -2165,8 +3092,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "マスタカテゴリー",
+            "from_node": "製品タイプ"
           }
         ],
         "memo": ""
@@ -2174,15 +3101,15 @@
       {
         "name": "プロセスID",
         "node": "MAIN_PD_ID",
-        "connect": "DWH/RTRから取得",
+        "connect": "DWH_RTRから取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "プロセスID"
           }
         ],
-        "memo": ""
+        "memo": "接続Node名は適当"
       },
       {
         "name": "MRC",
@@ -2191,8 +3118,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "マスタカテゴリー",
+            "from_node": "MRC"
           }
         ],
         "memo": ""
@@ -2200,38 +3127,38 @@
       {
         "name": "ロケーションシーケンス",
         "node": "LOC_SEQ_NO",
-        "connect": "DWH/RTRから取得",
+        "connect": "DWH_RTRから取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "ロケーションシーケンス"
           }
         ],
-        "memo": ""
+        "memo": "接続Node名は適当"
       },
       {
         "name": "シーケンス",
         "node": "ALL_OPE_SEQ_NO",
-        "connect": "DWH/RTRから取得",
+        "connect": "DWH_RTRから取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "シーケンス"
           }
         ],
-        "memo": ""
+        "memo": "接続Node名は適当"
       },
       {
         "name": "工程作業",
         "node": "OPE_NO",
-        "connect": "DWH/RTRから取得",
+        "connect": "DWH_RTRから取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "工程作業"
           }
         ],
         "memo": ""
@@ -2239,12 +3166,12 @@
       {
         "name": "FOUPカテゴリー",
         "node": "CAST_CATEGORY",
-        "connect": "DWH/RTRから取得",
+        "connect": "DWH_RTRから取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "FOUPカテゴリー"
           }
         ],
         "memo": ""
@@ -2252,12 +3179,12 @@
       {
         "name": "入りコンタミ",
         "node": "CONTAMI_FOUP_IN",
-        "connect": "DWH/RTRから取得",
+        "connect": "DWH_RTRから取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "入りコンタミ"
           }
         ],
         "memo": ""
@@ -2265,12 +3192,12 @@
       {
         "name": "入りステータス",
         "node": "CONTAMI_STAUS_IN",
-        "connect": "DWH/RTRから取得",
+        "connect": "DWH_RTRから取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "入りステータス"
           }
         ],
         "memo": ""
@@ -2278,12 +3205,12 @@
       {
         "name": "出コンタミ",
         "node": "CONTAMI_FOUP_OUT",
-        "connect": "DWH/RTRから取得",
+        "connect": "DWH_RTRから取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "出コンタミ"
           }
         ],
         "memo": ""
@@ -2291,12 +3218,12 @@
       {
         "name": "出ステータス",
         "node": "CONTAMI_STAUS_OUT",
-        "connect": "DWH/RTRから取得",
+        "connect": "DWH_RTRから取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "出ステータス"
           }
         ],
         "memo": ""
@@ -2304,12 +3231,12 @@
       {
         "name": "FOUP交換",
         "node": "FOUP_CHG",
-        "connect": "DWH/RTRから取得",
+        "connect": "DWH_RTRから取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "FOUP交換"
           }
         ],
         "memo": ""
@@ -2317,12 +3244,12 @@
       {
         "name": "FOUP洗浄",
         "node": "CLIN_FLAG",
-        "connect": "DWH/RTRから取得",
+        "connect": "DWH_RTRから取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "FOUP洗浄"
           }
         ],
         "memo": ""
@@ -2330,12 +3257,12 @@
       {
         "name": "キャリア交換",
         "node": "CA_CHG_FLAG",
-        "connect": "DWH/RTRから取得",
+        "connect": "DWH_RTRから取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "キャリア交換"
           }
         ],
         "memo": ""
@@ -2343,12 +3270,12 @@
       {
         "name": "ウェハID読み込み",
         "node": "WAFER_ID_READ",
-        "connect": "DWH/RTRから取得",
+        "connect": "DWH_RTRから取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "ウェハID読み込み"
           }
         ],
         "memo": ""
@@ -2356,12 +3283,12 @@
       {
         "name": "設備グループ",
         "node": "EQP_GRP_ID",
-        "connect": "DWH/RTRから取得",
+        "connect": "DWH_RTRから取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "設備グループ"
           }
         ],
         "memo": ""
@@ -2373,21 +3300,21 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "装置Gp変換",
+            "from_node": "管理装置Gp"
           }
         ],
-        "memo": ""
+        "memo": "レシピ上装置Gpと設備グループを比較して管理装置Gpから持ってくる？"
       },
       {
         "name": "ロジカルレシピ",
         "node": "LC_RECIPE_ID",
-        "connect": "DWH/RTRから取得",
+        "connect": "DWH_RTRから取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "ロジカルレシピ"
           }
         ],
         "memo": ""
@@ -2399,11 +3326,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "作業全設備"
           }
         ],
-        "memo": ""
+        "memo": "RTRから取得"
       },
       {
         "name": "インヒビット設備",
@@ -2412,11 +3339,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "作業全設備"
           }
         ],
-        "memo": ""
+        "memo": "RTRから取得"
       },
       {
         "name": "設備ID",
@@ -2425,11 +3352,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "作業全設備"
           }
         ],
-        "memo": ""
+        "memo": "RTRから取得"
       },
       {
         "name": "スキップフラグ",
@@ -2438,8 +3365,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "INIファイル",
+            "from_node": "スキップフラグ"
           }
         ],
         "memo": ""
@@ -2455,17 +3382,17 @@
             "from_node": ""
           }
         ],
-        "memo": ""
+        "memo": "DMで付与とは？"
       },
       {
         "name": "再処理プロセスID",
         "node": "REWORK_PROCESS_ID",
-        "connect": "DWH/RTRから取得",
+        "connect": "DWH_RTRから取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "再処理プロセスID"
           }
         ],
         "memo": ""
@@ -2473,12 +3400,12 @@
       {
         "name": "再生戻り作業",
         "node": "RW_RETURN_OPE",
-        "connect": "DWH/RTRから取得",
+        "connect": "DWH_RTRから取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "再生戻り作業"
           }
         ],
         "memo": ""
@@ -2486,12 +3413,12 @@
       {
         "name": "最大再生回数",
         "node": "MAX_REWORK_CNT",
-        "connect": "DWH/RTRから取得",
+        "connect": "DWH_RTRから取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "最大再生回数"
           }
         ],
         "memo": ""
@@ -2499,12 +3426,12 @@
       {
         "name": "Qtime時間",
         "node": "QTIME",
-        "connect": "DWH/RTRから取得",
+        "connect": "DWH_RTRから取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "Qtime時間"
           }
         ],
         "memo": ""
@@ -2512,12 +3439,12 @@
       {
         "name": "Qtimeターゲット工程",
         "node": "TAGET_OPE_NO",
-        "connect": "DWH/RTRから取得",
+        "connect": "DWH_RTRから取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "Qtimeターゲット工程"
           }
         ],
         "memo": ""
@@ -2525,12 +3452,12 @@
       {
         "name": "ラグタイム時間",
         "node": "LAGTIME",
-        "connect": "DWH/RTRから取得",
+        "connect": "DWH_RTRから取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "ラグタイム時間"
           }
         ],
         "memo": ""
@@ -2538,12 +3465,12 @@
       {
         "name": "パージ要求",
         "node": "PURGE_REQUIRE",
-        "connect": "DWH/RTRから取得",
+        "connect": "DWH_RTRから取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "パージ要求"
           }
         ],
         "memo": ""
@@ -2551,12 +3478,12 @@
       {
         "name": "処理時間",
         "node": "PROCESS_TIME",
-        "connect": "DWH/RTRから取得",
+        "connect": "DWH_RTRから取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "DWH_RTR",
+            "from_node": "処理時間"
           }
         ],
         "memo": ""
@@ -2568,8 +3495,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "進捗管理板",
+            "from_node": "出荷日"
           }
         ],
         "memo": ""
@@ -2581,8 +3508,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "進捗管理板",
+            "from_node": "進捗日"
           }
         ],
         "memo": ""
@@ -2594,8 +3521,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "進捗管理板",
+            "from_node": "進捗フロー"
           }
         ],
         "memo": ""
@@ -2607,11 +3534,24 @@
         "display": "o",
         "from": [
           {
+            "from_subgraph": "プロセスフロー情報",
+            "from_node": "DM"
+          }
+        ],
+        "memo": ""
+      },
+      {
+        "name": "DM",
+        "node": "DM",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
             "from_subgraph": "",
             "from_node": ""
           }
         ],
-        "memo": ""
+        "memo": "Excelに存在しないので追加"
       },
       {
         "name": "予測LT",
@@ -2620,11 +3560,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "プロセスフロー情報",
+            "from_node": "計画リードタイム"
           }
         ],
-        "memo": ""
+        "memo": "予測LT = 【計画リードタイム】/1440分"
       },
       {
         "name": "待機時間",
@@ -2633,11 +3573,24 @@
         "display": "o",
         "from": [
           {
+            "from_subgraph": "プロセスフロー情報",
+            "from_node": "処理時間"
+          }
+        ],
+        "memo": "待機時間=予測LT-【処理時間】"
+      },
+      {
+        "name": "ABC製品リスト",
+        "node": "ABC製品リスト",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
             "from_subgraph": "",
             "from_node": ""
           }
         ],
-        "memo": ""
+        "memo": "Excelに存在しないので追加"
       },
       {
         "name": "ABC専用タイプフラグ",
@@ -2646,11 +3599,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "プロセスフロー情報",
+            "from_node": "ABC製品リスト"
           }
         ],
-        "memo": ""
+        "memo": "ABC製品リストってなに？"
       },
       {
         "name": "CTB名称",
@@ -2659,11 +3612,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "プロセスフロー情報",
+            "from_node": "工程作業"
           }
         ],
-        "memo": ""
+        "memo": "ABC定義の区切りに変換とは？"
       },
       {
         "name": "TYPE",
@@ -2672,8 +3625,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "プロセスフロー情報",
+            "from_node": "ABC製品リスト"
           }
         ],
         "memo": ""
@@ -2685,11 +3638,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "プロセスフロー情報",
+            "from_node": "MRC"
           }
         ],
-        "memo": ""
+        "memo": "変換方法とは？"
       },
       {
         "name": "ABC専用通し番号",
@@ -2698,11 +3651,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "プロセスフロー情報",
+            "from_node": "Manual_input"
           }
         ],
-        "memo": ""
+        "memo": "参照元と命名方法を確認したい"
       },
       {
         "name": "通し番号",
@@ -2711,11 +3664,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "プロセスフロー情報",
+            "from_node": "シーケンス"
           }
         ],
-        "memo": ""
+        "memo": "計算方法が不明"
       },
       {
         "name": "ブロック",
@@ -2724,11 +3677,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "プロセスフロー情報",
+            "from_node": "Manual_input"
           }
         ],
-        "memo": ""
+        "memo": "参照元と命名方法を確認したい"
       },
       {
         "name": "日括り",
@@ -2737,16 +3690,20 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "プロセスフロー情報",
+            "from_node": "OUTDAYS"
+          },
+          {
+            "from_subgraph": "プロセスフロー情報",
+            "from_node": "PROCESS_DATE"
           }
         ],
-        "memo": ""
+        "memo": "【OUTDAYS】と【PROCESS_DATE】がどこから来るかがわからない。計算方法も不明"
       },
       {
-        "name": null,
-        "node": null,
-        "connect": null,
+        "name": "OUTDAYS",
+        "node": "OUTDAYS",
+        "connect": "",
         "display": "o",
         "from": [
           {
@@ -2754,12 +3711,12 @@
             "from_node": ""
           }
         ],
-        "memo": ""
+        "memo": "Excelに存在しないので追加"
       },
       {
-        "name": null,
-        "node": null,
-        "connect": null,
+        "name": "PROCESS_DATE",
+        "node": "PROCESS_DATE",
+        "connect": "",
         "display": "o",
         "from": [
           {
@@ -2767,12 +3724,12 @@
             "from_node": ""
           }
         ],
-        "memo": ""
+        "memo": "Excelに存在しないので追加"
       },
       {
-        "name": null,
-        "node": null,
-        "connect": null,
+        "name": "Manual_input",
+        "node": "Manual_input",
+        "connect": "",
         "display": "o",
         "from": [
           {
@@ -2780,12 +3737,18 @@
             "from_node": ""
           }
         ],
-        "memo": ""
-      },
+        "memo": "Excelに存在しないので追加"
+      }
+    ]
+  },
+  {
+    "sheet": "進捗管理板",
+    "subgraph": "進捗管理板",
+    "nodes": [
       {
-        "name": null,
-        "node": null,
-        "connect": null,
+        "name": "進捗フロー",
+        "node": "進捗フロー",
+        "connect": "",
         "display": "o",
         "from": [
           {
@@ -2793,12 +3756,12 @@
             "from_node": ""
           }
         ],
-        "memo": ""
+        "memo": "Excelに存在しないので追加"
       },
       {
-        "name": null,
-        "node": null,
-        "connect": null,
+        "name": "進捗日",
+        "node": "進捗日",
+        "connect": "",
         "display": "o",
         "from": [
           {
@@ -2806,12 +3769,12 @@
             "from_node": ""
           }
         ],
-        "memo": ""
+        "memo": "Excelに存在しないので追加"
       },
       {
-        "name": null,
-        "node": null,
-        "connect": null,
+        "name": "出荷日",
+        "node": "出荷日",
+        "connect": "",
         "display": "o",
         "from": [
           {
@@ -2819,12 +3782,18 @@
             "from_node": ""
           }
         ],
-        "memo": ""
-      },
+        "memo": "Excelに存在しないので追加"
+      }
+    ]
+  },
+  {
+    "sheet": "INIファイル",
+    "subgraph": "INIファイル",
+    "nodes": [
       {
-        "name": null,
-        "node": null,
-        "connect": null,
+        "name": "スキップフラグ",
+        "node": "スキップフラグ",
+        "connect": "",
         "display": "o",
         "from": [
           {
@@ -2832,553 +3801,7 @@
             "from_node": ""
           }
         ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
+        "memo": "Excelに存在しないので追加"
       }
     ]
   },
@@ -3393,8 +3816,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "カテゴリマスタ",
+            "from_node": "TYPE"
           }
         ],
         "memo": ""
@@ -3406,11 +3829,37 @@
         "display": "o",
         "from": [
           {
+            "from_subgraph": "KSR_SETTING",
+            "from_node": "TYPE2"
+          }
+        ],
+        "memo": "階数情報を使用してカテゴリマスタのMRCを変換とは？"
+      },
+      {
+        "name": "ATR",
+        "node": "ATR",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
             "from_subgraph": "",
             "from_node": ""
           }
         ],
-        "memo": ""
+        "memo": "Excelに存在しないので追加"
+      },
+      {
+        "name": "Manual_input",
+        "node": "Manual_input",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
+            "from_subgraph": "",
+            "from_node": ""
+          }
+        ],
+        "memo": "Excelに存在しないので追加"
       },
       {
         "name": "COMMON",
@@ -3419,21 +3868,25 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "KSR_SETTING",
+            "from_node": "ATR"
+          },
+          {
+            "from_subgraph": "KSR_SETTING",
+            "from_node": "Manual_input"
           }
         ],
-        "memo": ""
+        "memo": "詳細な設定方法が不明"
       },
       {
-        "name": "PRODSPEC_ID　",
-        "node": "PRODSPEC_ID　",
+        "name": "PRODSPEC_ID",
+        "node": "PRODSPEC_ID",
         "connect": "カテゴリマスタの【PRODSPEC_ID】から取得",
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "カテゴリマスタ",
+            "from_node": "PRODSPEC_ID"
           }
         ],
         "memo": ""
@@ -3445,372 +3898,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "KSR_SETTING",
+            "from_node": "Manual_input"
           }
         ],
         "memo": ""
@@ -3828,11 +3917,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "マスタカテゴリー",
+            "from_node": "MRC"
           }
         ],
-        "memo": ""
+        "memo": "カテゴリマスタではなく、マスタカテゴリー？"
       },
       {
         "name": "SEQ_NO",
@@ -3841,11 +3930,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "マージフローマスタ",
+            "from_node": "SEQ_NO"
           }
         ],
-        "memo": ""
+        "memo": "登録されたときに、ここで自動採番でよい？"
       },
       {
         "name": "KOUTEI",
@@ -3854,11 +3943,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "プロセスフロー情報",
+            "from_node": "工程作業"
           }
         ],
-        "memo": ""
+        "memo": "\".\"で分割し、前のブロックを取得"
       },
       {
         "name": "OPE_NO",
@@ -3867,11 +3956,24 @@
         "display": "o",
         "from": [
           {
+            "from_subgraph": "プロセスフロー情報",
+            "from_node": "工程作業"
+          }
+        ],
+        "memo": ""
+      },
+      {
+        "name": "Manual_input",
+        "node": "Manual_input",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
             "from_subgraph": "",
             "from_node": ""
           }
         ],
-        "memo": ""
+        "memo": "Excelに存在しないので追加"
       },
       {
         "name": "EQP_GROUP",
@@ -3880,11 +3982,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "マージフローマスタ",
+            "from_node": "Manual_input"
           }
         ],
-        "memo": ""
+        "memo": "処理実績（ope lot info）の確認方法が不明"
       },
       {
         "name": "MRC",
@@ -3893,11 +3995,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "マスタカテゴリー",
+            "from_node": "MRC"
           }
         ],
-        "memo": ""
+        "memo": "カテゴリマスタではなく、マスタカテゴリー？"
       },
       {
         "name": "ZONE",
@@ -3906,11 +4008,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "マージフローマスタ",
+            "from_node": "ZONE"
           }
         ],
-        "memo": ""
+        "memo": "カテゴリマスタではなく、マスタカテゴリー？マスタカテゴリーにZoneはない。工程パターンマスタかKSR_SETTINGにならある。"
       },
       {
         "name": "BLOCK_NO",
@@ -3923,7 +4025,7 @@
             "from_node": ""
           }
         ],
-        "memo": ""
+        "memo": "確認方法が不明"
       },
       {
         "name": "TIME_RESTRECT_MEMO",
@@ -3951,11 +4053,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "プロセスフロー情報",
+            "from_node": "工程作業"
           }
         ],
-        "memo": ""
+        "memo": "ABC定義の区切りに変換とは？"
       },
       {
         "name": "TYPE",
@@ -3964,8 +4066,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "プロセスフロー情報",
+            "from_node": "ABC製品リスト"
           }
         ],
         "memo": ""
@@ -3977,8 +4079,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "プロセスフロー情報",
+            "from_node": "プロセスID"
           }
         ],
         "memo": ""
@@ -3990,8 +4092,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "プロセスフロー情報",
+            "from_node": "工程作業"
           }
         ],
         "memo": ""
@@ -4003,8 +4105,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "プロセスフロー情報",
+            "from_node": "MRC"
           }
         ],
         "memo": ""
@@ -4016,11 +4118,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "プロセスフロー情報",
+            "from_node": "設備グループ"
           }
         ],
-        "memo": ""
+        "memo": "プロセスフロー情報に管理装置Gpがない。設備グループ、管理設備グループならある"
       },
       {
         "name": "ABC専用通し番号",
@@ -4033,7 +4135,7 @@
             "from_node": ""
           }
         ],
-        "memo": ""
+        "memo": "工程の間に新規行を追加する場合、番号を.1のように小数点を加えて間に挿入するのやり方が不明"
       },
       {
         "name": "通し番号",
@@ -4042,11 +4144,11 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "プロセスフロー情報",
+            "from_node": "シーケンス"
           }
         ],
-        "memo": ""
+        "memo": "計算方法が不明"
       },
       {
         "name": "ブロック",
@@ -4059,7 +4161,7 @@
             "from_node": ""
           }
         ],
-        "memo": ""
+        "memo": "流用方法が不明。算出方法が不明"
       },
       {
         "name": "日括り",
@@ -4100,6 +4202,19 @@
         "display": "o",
         "from": [
           {
+            "from_subgraph": "カテゴリ変換マスタ",
+            "from_node": "CATEGORY"
+          }
+        ],
+        "memo": "カテゴリマスタの【カテゴリ】がない"
+      },
+      {
+        "name": "Manual_input",
+        "node": "Manual_input",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
             "from_subgraph": "",
             "from_node": ""
           }
@@ -4113,8 +4228,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "カテゴリ変換マスタ",
+            "from_node": "Manual_input"
           }
         ],
         "memo": ""
@@ -4132,6 +4247,19 @@
         "display": "o",
         "from": [
           {
+            "from_subgraph": "カテゴリマスタ",
+            "from_node": "製品タイプ"
+          }
+        ],
+        "memo": ""
+      },
+      {
+        "name": "Manual_input",
+        "node": "Manual_input",
+        "connect": "",
+        "display": "o",
+        "from": [
+          {
             "from_subgraph": "",
             "from_node": ""
           }
@@ -4145,8 +4273,8 @@
         "display": "o",
         "from": [
           {
-            "from_subgraph": "",
-            "from_node": ""
+            "from_subgraph": "子カテゴリ変換マスタ",
+            "from_node": "Manual_input"
           }
         ],
         "memo": ""
@@ -4173,7 +4301,7 @@
             "from_node": ""
           }
         ],
-        "memo": ""
+        "memo": "接続先不明"
       },
       {
         "name": "工程.作業",
@@ -4186,7 +4314,7 @@
             "from_node": ""
           }
         ],
-        "memo": ""
+        "memo": "接続先不明"
       },
       {
         "name": "予測LT",
@@ -4199,7 +4327,7 @@
             "from_node": ""
           }
         ],
-        "memo": ""
+        "memo": "接続先不明"
       },
       {
         "name": "計画ウェハー数",
@@ -4212,7 +4340,7 @@
             "from_node": ""
           }
         ],
-        "memo": ""
+        "memo": "接続先不明"
       },
       {
         "name": "待機時間",
@@ -4225,33 +4353,7 @@
             "from_node": ""
           }
         ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
-      },
-      {
-        "name": null,
-        "node": null,
-        "connect": null,
-        "display": "o",
-        "from": [
-          {
-            "from_subgraph": "",
-            "from_node": ""
-          }
-        ],
-        "memo": ""
+        "memo": "接続先不明"
       }
     ]
   }
